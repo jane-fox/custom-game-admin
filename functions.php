@@ -8,52 +8,92 @@ function create_post_types() {
 	register_post_type( 'scene',
 		array(
 			'menu_icon' => 'dashicons-format-video',
-			'labels' => array(
-				'name' => __( 'Scenes' ),
-				'singular_name' => __( 'Scene' )
-				),
 			'public' => true,
 			'has_archive' => true,
-			)
-		);
+
+			'labels' => array(
+				'name' => __( 'Scenes' ),
+				'singular_name' => __( 'Scene' ),
+			    'add_new' => __('Add New Scene'),
+			    'add_new_item' => __('Add New Scene'),
+			    'edit_item' => __('Edit Scene'),
+			    'new_item' => __('New Scene'),
+			    'view_item' => __('View Scene'),
+			    'search_items' => __('Search Scenes'),
+			    'not_found' =>  __('No Scenes found'),
+			    'not_found_in_trash' => __('No Scenes found in Trash'),
+   				'parent_item_colon' => ''
+			), // labels
+		)	
+	); // scene post type
+
+
 
 	register_post_type( 'place',
 		array(
 			'menu_icon' => 'dashicons-admin-site',
-			'labels' => array(
-				'name' => __( 'Places' ),
-				'singular_name' => __( 'Place' )
-				),
 			'public' => true,
 			'has_archive' => true,
-			)
-		);
+
+			'labels' => array(
+				'name' => __( 'Places' ),
+				'singular_name' => __( 'Place' ),
+			    'add_new' => __('Add New Place'),
+			    'add_new_item' => __('Add New Place'),
+			    'edit_item' => __('Edit Place'),
+			    'new_item' => __('New Place'),
+			    'view_item' => __('View Place'),
+			    'search_items' => __('Search Places'),
+			    'not_found' =>  __('No Places found'),
+			    'not_found_in_trash' => __('No Places found in Trash'),
+   				'parent_item_colon' => ''
+			), // labels
+
+		)
+	); // place post type
+
+
 
 	register_post_type( 'character',
 		array(
 			'menu_icon' => 'dashicons-universal-access',
-			'labels' => array(
-				'name' => __( 'Characters' ),
-				'singular_name' => __( 'Character' )
-				),
 			'public' => true,
 			'has_archive' => true,
-			)
-		);
+
+			'labels' => array(
+				'name' => __( 'Characters' ),
+				'singular_name' => __( 'Character' ),
+			    'add_new' => __('Add New Character'),
+			    'add_new_item' => __('Add New Character'),
+			    'edit_item' => __('Edit Character'),
+			    'new_item' => __('New Character'),
+			    'view_item' => __('View Character'),
+			    'search_items' => __('Search Characters'),
+			    'not_found' =>  __('No Characters found'),
+			    'not_found_in_trash' => __('No Characters found in Trash'),
+   				'parent_item_colon' => ''
+			), // labels
+
+		)
+	); // character post_type
+
 
 	register_post_type( 'item',
 		array(
 			'menu_icon' => 'dashicons-carrot',
+			'public' => true,
+			'has_archive' => true,
+
 			'labels' => array(
 				'name' => __( 'Items' ),
 				'singular_name' => __( 'Item' ),
 				'all_items' => __('Item functionality currently does not exist. But you can still pre-empitively create some if youd like.')
-				),
-			'public' => true,
-			'has_archive' => true,
+			),
+
 			//'show_ui' =>
-			)
-		);
+		)
+	); // item post_type
+
 
 }
 
@@ -70,7 +110,8 @@ function custom_post_columns($column_name, $post_ID) {
 }
 
 
-
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
 
 
 add_action('user_register', 'set_default_admin_color');
@@ -175,24 +216,24 @@ function twentyseventeen_scripts() {
 /**
  * Implement the Custom Header feature.
  */
-require get_parent_theme_file_path( '/inc/custom-header.php' );
+//require get_parent_theme_file_path( '/inc/custom-header.php' );
 
 /**
  * Custom template tags for this theme.
  */
-require get_parent_theme_file_path( '/inc/template-tags.php' );
+//require get_parent_theme_file_path( '/inc/template-tags.php' );
 
 /**
  * Additional features to allow styling of the templates.
  */
-require get_parent_theme_file_path( '/inc/template-functions.php' );
+//require get_parent_theme_file_path( '/inc/template-functions.php' );
 
 /**
  * Customizer additions.
  */
-require get_parent_theme_file_path( '/inc/customizer.php' );
+//require get_parent_theme_file_path( '/inc/customizer.php' );
 
 /**
  * SVG icons functions and filters.
  */
-require get_parent_theme_file_path( '/inc/icon-functions.php' );
+//require get_parent_theme_file_path( '/inc/icon-functions.php' );
