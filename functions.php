@@ -10,6 +10,8 @@ function create_post_types() {
 			'menu_icon' => 'dashicons-format-video',
 			'public' => true,
 			'has_archive' => true,
+			'supports' => 'page-attributes',
+			'hierarchical' => true,
 
 			'labels' => array(
 				'name' => __( 'Scenes' ),
