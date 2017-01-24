@@ -3,24 +3,28 @@
  * Template Name: Export (Export Page Only!)
  */
 
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-echo "<p>Getting stuff...</p>";
 
+?>
+
+<p>Getting started...</p>
+
+
+<?php
 
 $search_args = array(
 	'post_type' => 'scene',
 	'posts_per_page' => -1,
-
-
 );
 
 $types = [ "scene", "character", "place", "item" ];
 $data = [];
 
-//echo "<pre>";
+echo "<pre>";
 
 //Go through each type of content we want
 foreach ($types as $type) {
@@ -35,8 +39,9 @@ foreach ($types as $type) {
 
 		//Get all custom fields for post
 		$custom = get_fields($post->ID);
+		$pretty = rename_fields($post);
 
-		$post_array = (array) $post;
+		$post_array = (array) $pretty;
 		$custom_array = (array) $custom;
 
 		//Add custom data into original post data
@@ -51,12 +56,13 @@ foreach ($types as $type) {
 
 	//After loop is done, print the results out to files
 	$output = setup_content($type, $data[$type]);
+	//echo $output;
 	file_put_contents("/var/www/data/" . $type . "s.js", $output );
 
 
 }
 
-//echo "</pre>";
+echo "</pre>";
 
 
 function setup_content($type, $data) {
@@ -72,8 +78,26 @@ function setup_content($type, $data) {
 }
 
 
+function rename_fields($data) {
+
+	$new_post = array();
+	//print_r($post);
+
+	$new_post["name"] = $data->post_name;
+	$new_post["text"] = $data->post_content;
+	$new_post["title"] = $data->post_title;
+
+	//TODO lookup author and parent
+
+
+
+
+	return $new_post;
+
+
+}
+
+
 
 echo "<p>... Done !</p>";
-
-
 
