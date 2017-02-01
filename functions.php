@@ -99,6 +99,24 @@ function create_post_types() {
 	); // item post_type
 
 
+
+	register_post_type( 'map',
+		array(
+			'menu_icon' => 'dashicons-location-alt',
+			'public' => true,
+			'has_archive' => true,
+
+			'labels' => array(
+				'name' => __( 'Map' ),
+				'singular_name' => __( 'Map' ),
+				//'all_items' => __('Item functionality currently does not exist. But you can still pre-empitively create some if youd like.')
+			),
+
+			//'show_ui' =>
+		)
+	); // item post_type
+
+
 }
 
 
