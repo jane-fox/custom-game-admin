@@ -57,7 +57,10 @@ foreach ($types as $type) {
 	//After loop is done, print the results out to files
 	$output = setup_content($type, $data[$type]);
 	//echo $output;
+
+
 	file_put_contents("/var/www/data/" . $type . "s.js", $output );
+	file_put_contents("/var/www/wordpress/data/" . $type . "s.js", $output );
 
 
 }
