@@ -31,11 +31,14 @@ foreach ($types as $type) {
 
 	//Get all posts for that type
 	$posts = get_posts(["post_type" => $type, 'posts_per_page' => -1]);
-	
+
 	$data[$type] = array();
 
-	//For each individual post, 
+	//For each individual post,
 	foreach ($posts as $post) {
+
+		//print_r($post);
+
 
 		//Get all custom fields for post
 		$custom = get_fields($post->ID);
@@ -54,9 +57,11 @@ foreach ($types as $type) {
 
 	}
 
+
 	//After loop is done, print the results out to files
 	$output = setup_content($type, $data[$type]);
 	//echo $output;
+	print_r($output);
 
 
 	file_put_contents("/var/www/data/" . $type . "s.js", $output );
@@ -64,6 +69,8 @@ foreach ($types as $type) {
 
 
 }
+
+
 
 echo "</pre>";
 
@@ -90,6 +97,12 @@ function rename_fields($data) {
 	$new_post["text"] = $data->post_content;
 	$new_post["title"] = $data->post_title;
 
+	//If item has a parent, look it up and get its name
+	if ($data->post_parent > 0) {
+		$parent = get_post($data->post_parent);
+		$new_post["parent"] = $parent->post_name;
+	}
+
 	//TODO lookup author and parent
 
 
@@ -103,4 +116,3 @@ function rename_fields($data) {
 
 
 echo "<p>... Done !</p>";
-
