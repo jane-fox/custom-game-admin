@@ -2,7 +2,10 @@
 
 
 add_action( 'init', 'create_post_types' );
+add_action( 'init', 'custom_options' );
 
+
+// Register custom post types for our data
 function create_post_types() {
 
 	register_post_type( 'scene',
@@ -30,7 +33,6 @@ function create_post_types() {
 	); // scene post type
 
 
-
 	register_post_type( 'place',
 		array(
 			'menu_icon' => 'dashicons-admin-site',
@@ -55,7 +57,6 @@ function create_post_types() {
 
 		)
 	); // place post type
-
 
 
 	register_post_type( 'character',
@@ -99,7 +100,6 @@ function create_post_types() {
 	); // item post_type
 
 
-
 	register_post_type( 'map',
 		array(
 			'menu_icon' => 'dashicons-location-alt',
@@ -120,18 +120,26 @@ function create_post_types() {
 }
 
 
+// Custom options for the game
+function custom_options() {
+
+	// group, option name
+	add_option("content_version", "0.1");
+
+
+
+}
 
 
 add_action('manage_posts_custom_column', 'custom_post_columns', 10, 2);
-
-// SHOW THE FEATURED IMAGE
 function custom_post_columns($column_name, $post_ID) {
-    if ($column_name == 'url') {
+    if ($column_name == 'post_name') {
             echo $post_ID;
     }
 }
 
 
+//Remove emojis
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
@@ -152,32 +160,10 @@ function set_default_admin_color($user_id) {
 
 
 
-/**
- * Add a pingback url auto-discovery header for singularly identifiable articles.
- */
-function twentyseventeen_pingback_header() {
-	if ( is_singular() && pings_open() ) {
-		printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
-	}
-}
-//add_action( 'wp_head', 'twentyseventeen_pingback_header' );
 
-/**
- * Display custom color CSS.
- */
-function twentyseventeen_colors_css_wrap() {
-	if ( 'custom' !== get_theme_mod( 'colorscheme' ) && ! is_customize_preview() ) {
-		return;
-	}
 
-	require_once( get_parent_theme_file_path( '/inc/color-patterns.php' ) );
-	$hue = absint( get_theme_mod( 'colorscheme_hue', 250 ) );
-	?>
-	<style type="text/css" id="custom-theme-colors" <?php if ( is_customize_preview() ) { echo 'data-hue="' . $hue . '"'; } ?>>
-		<?php echo twentyseventeen_custom_colors_css(); ?>
-	</style>
-	<?php }
-	//add_action( 'wp_head', 'twentyseventeen_colors_css_wrap' );
+
+
 
 /**
  * Enqueue scripts and styles.
