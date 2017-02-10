@@ -1,8 +1,4 @@
-<?php
-/**
- * Template Name: play
- */
 
-header('Location: story-game.com');
+<?php //Template Name: play
 
-//$version = get_option("content_version");
+header('Location: https://adventure-text.com');
