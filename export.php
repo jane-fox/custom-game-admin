@@ -17,8 +17,11 @@
 
 <?php
 
-//Print current version -- updated below!
+// Print current version and update it
 $version = get_option("content_version");
+$new_ver = (float)$version;
+$new_ver += .01;
+update_option("content_version", $new_ver);
 echo "<p>Old content version: " . $version . "...</p>";
 
 
@@ -125,8 +128,5 @@ function rename_fields($data) {
 
 
 
-$new_ver = (float)$version;
-$new_ver += .01;
 
-update_option("content_version", $new_ver);
 echo "<h1>All done! New content version: " . $new_ver . "</h1>";

@@ -3,6 +3,6 @@
  * Template Name: play
  */
 
-header('Location: /fiction/main.html');
+header('Location: story-game.com');
 
-$version = get_option("content_version");
+//$version = get_option("content_version");
