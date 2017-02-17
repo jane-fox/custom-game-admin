@@ -72,18 +72,11 @@ foreach ($types as $type) {
 		array_push($data[$type], $combined);
 
 
-
-	}
-
-	//echo $output;
-	//print_r($output);
+	} //foreach posts
 
 
-	//file_put_contents("/var/www/data/" . $type . "s.js", $output );
+} //foreach type
 
-
-
-}
 
 //After loop is done, print the results out to files
 $output = setup_content($data);
@@ -94,8 +87,6 @@ fclose($file);
 chmod("/var/www/data.js", 0644);
 
 echo "</pre>";
-
-
 
 
 
@@ -141,14 +132,10 @@ function rename_fields($data) {
 
 	//TODO lookup author and parent
 
-
-
-
 	return $new_post;
 
 
 }
-
 
 
 echo "<h1>All done! New content version: " . $new_ver . "</h1>";
