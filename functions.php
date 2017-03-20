@@ -29,7 +29,7 @@ function create_post_types() {
 			    'not_found_in_trash' => __('No Scenes found in Trash'),
    				'parent_item_colon' => ''
 			), // labels
-		)	
+		)
 	); // scene post type
 
 
@@ -109,6 +109,23 @@ function create_post_types() {
 			'labels' => array(
 				'name' => __( 'Map' ),
 				'singular_name' => __( 'Map' ),
+				//'all_items' => __('Item functionality currently does not exist. But you can still pre-empitively create some if youd like.')
+			),
+
+			//'show_ui' =>
+		)
+	); // map post_type
+
+
+	register_post_type( 'conversation',
+		array(
+			'menu_icon' => 'dashicons-format-chat',
+			'public' => true,
+			'has_archive' => true,
+
+			'labels' => array(
+				'name' => __( 'Conversation' ),
+				'singular_name' => __( 'Conversation' ),
 				//'all_items' => __('Item functionality currently does not exist. But you can still pre-empitively create some if youd like.')
 			),
 
