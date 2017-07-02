@@ -1,0 +1,166 @@
+
+@import "vars";
+
+
+@import "normalize";
+@import "mixins/mixins-master";
+
+@import "modules/accessibility";
+@import "modules/alignments";
+@import "modules/clearings";
+@import "modules/infinite-scroll";
+
+@import "font-awesome/font-awesome";
+
+@import "media/media";
+
+@import "lightbox";
+
+@import "widgets";
+
+@import "nav";
+
+@import "forms";
+
+@import "animation";
+
+
+
+@import "elements";
+
+
+
+
+.color-bg {
+	background-color: $color-main;
+	color: $color-white;
+}
+
+.alt-bg {
+	background-color: $color-alt;
+	padding-bottom: $tightness;
+}
+
+.margin-top {
+	margin-top: $tightness;
+}
+
+.margin-bottom {
+	margin-bottom: $tightness*2;
+}
+
+
+
+.page-title {
+	font-size: $font-size-title;
+	margin: 0;
+	padding: $tightness*2 0;
+}
+
+
+
+
+.display-column {
+	margin-bottom: $tightness*2;
+	h2,h3, h4 {
+		margin-top: $tightness/2;
+	}
+	.fa {
+		font-size: 72px;
+	}
+}
+
+@media ($break-sm-up) {
+	.display-column {
+		margin-bottom: 0;
+		}
+}
+
+
+#site-footer {
+	background-color: $color-dark;
+	color: #FFF;
+	padding: $tightness*2 0;
+	margin-top: $tightness*2;
+
+	a, a:hover { 
+		color: $color-white;
+		font-size: $font-size-big;
+		margin-right: $tightness;
+	}
+}
+
+
+.post-list {
+
+	header {
+		img {
+			float: left;
+			max-height: 150px;
+			max-width: 150px;
+			height: auto;
+			width: auto;
+		}
+		h3, h2 {
+			display: inline-block;
+		}
+	}
+
+}
+
+
+
+
+
+
+.project-gallery {
+	width: 100%;
+	//background-color: $color-second;
+	padding: $tightness*2 0;
+
+	a {
+		display: inline-block;
+		margin-bottom: $tightness;
+		// This selects every thumb after the 4th
+
+	}
+}
+
+.project-thumb {
+	text-align: center;
+	img {
+		vertical-align: center;
+	}
+	&:nth-child(1n+5) {
+		display: none;
+	}
+}
+
+@media ($break-sm-up) {
+	.project-gallery {
+		a {
+			margin-bottom: 0;
+		}
+	}
+}
+
+
+
+.tags-links a {
+	padding: 2px;
+}
+
+.edit-link {
+	display: block;
+	padding: 6px;
+	margin: $tightness/2 0;
+}
+
+// Remove next / prev links in post
+.post-navigation {
+	display: none;
+}
+
+.entry-content {
+	margin: 0;
+}

@@ -1,0 +1,53 @@
+
+@import "vars";
+
+
+.sidebar {
+	color: $color-dark;
+
+	margin: $tightness 0;
+	padding: $tightness;
+
+	ul {
+		padding-left: 0;
+		margin-left: 0;
+	}
+	li {
+		list-style-type: none;
+	}
+}
+
+.widget {
+	margin: 0 0 $tightness;
+
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	} 
+	a, a:visited, a:active {
+		color: $color-grey;
+	}
+}
+
+.widget-title {
+	font-size: $font-size-big;
+	color: $color-dark;
+}
+
+
+
+.search-form {
+	label {
+		display: inline-block;
+		width: 68%;
+		margin-right: 5%;
+	}
+	.search-field {
+		margin: 0;
+		width: 100%;
+	}
+	.search-submit, button {
+		padding-left: 6%;
+		padding-right: 6%;
+	}
+}

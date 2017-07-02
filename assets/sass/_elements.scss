@@ -1,0 +1,100 @@
+
+@import "vars";
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+
+	//font-family: "Cantarell";
+	font-family: "Oxygen";
+	background-color: $color-white;
+	color: $color-dark;
+	font-size: $font-size-text;
+}
+
+
+p {
+	margin-bottom: $tightness;
+	line-height: 200%;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	//font-weight: bold;
+	margin: $tightness*2 0 $tightness 0;
+}
+
+a, a:visited {
+	color: $color-main;
+	font-weight: normal;
+	line-height: 200%;
+	
+}
+
+img.aligncenter {
+	display: block;
+	margin: 0 auto;
+}
+
+
+blockquote, q {
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
+
+hr {
+	background-color: $color-grey;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+
+ul, ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}

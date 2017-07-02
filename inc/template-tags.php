@@ -146,7 +146,7 @@ function twentyseventeen_front_page_section( $partial = null, $id = 0 ) {
 		setup_postdata( $post );
 		set_query_var( 'panel', $id );
 
-		get_template_part( 'template-parts/page/content', 'front-page-panels' );
+		get_template_part( 'templates/page/content', 'front-page-panels' );
 
 		wp_reset_postdata();
 	} elseif ( is_customize_preview() ) {

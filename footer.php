@@ -10,9 +10,10 @@
 
 					<div class="site-info">
 
-							<a href="<?php  echo esc_url( __( 'http://wordpress.org/','understrap' ) ); ?>">
+						<a href="<?php  echo esc_url( __( 'http://wordpress.org/','understrap' ) ); ?>">
 
-								<span class="sep"> | </span>
+						<span class="sep"> | </span>
+
 					</div><!-- .site-info -->
 
 				</footer><!-- #colophon -->
@@ -29,7 +30,7 @@
 
 <footer id="" class="site-footer" role="contentinfo">
 		<?php
-		get_template_part( 'template-parts/footer/footer', 'widgets' );
+		get_template_part( 'templates/footer/footer', 'widgets' );
 
 		if ( has_nav_menu( 'social' ) ) : ?>
 			<nav class="social-navigation" role="navigation" aria-label="<?php _e( 'Footer Social Links Menu', 'twentyseventeen' ); ?>">
@@ -45,7 +46,7 @@
 			</nav><!-- .social-navigation -->
 		<?php endif;
 
-		//get_template_part( 'template-parts/footer/site', 'info' );
+		//get_template_part( 'templates/footer/site', 'info' );
 		?>
 </footer><!-- #colophon -->
 
