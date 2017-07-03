@@ -13,35 +13,20 @@ var sourcemaps = require('gulp-sourcemaps');
 
 // the /**/ will include current and all subdirectories
 //var js_dir = "js/**/*.js";
-var js_dir = [
-	"js/navigation.js",
-	"js/skip-link-focus-fix.js",
-	"js/bootstrap.min.js",
-	"js/parallax.min.js",
-	"js/spinhex.js",
-	"js/lightbox.js"
-
-];
-
-var js_output = "js/scripts.js";
+var js_dir = "assets/js/*";
+var css_dir = "assets/css";
 
 // this {} will select both types of files
 //var css_dir = "css/**/*.{scss,css}";
-var sass_dir = [
-	"sass/**/*.scss"
-];
-
-// For the output of our sass
-var css_dir = "css";
+var sass_dir = "assets/sass/**/*.scss";
 
 
-var template_dir = "templates/**/*.html";
-
+var js_output = "assets/scripts.min.js";
+var css_output = "assets/styles.min.css";
 
 
 
 gulp.task('default', ["sass", "scripts"]);
-//gulp.task('default', ["scripts", "sass"]);
 
 
 //Watch each folder and update only relevant code
@@ -57,9 +42,17 @@ gulp.task('watch', function() {
 gulp.task('scripts', function() {
 
     return gulp.src(js_dir)
+
+		// Add sourcemap
 		.pipe(sourcemaps.init())
+
+		// Combine files into one
         .pipe(concat(js_output))
+
+		// Minify
         .pipe(uglify())
+
+		// Output
 		.pipe(sourcemaps.write('./'))
         .pipe(gulp.dest("./"))
 	;
@@ -72,13 +65,13 @@ gulp.task('sass', function () {
 	return gulp.src(sass_dir)
 		.pipe(sass({ style: "compressed" }).on('error', sass.logError))
 		.pipe(minify())
-		.pipe(gulp.dest(css_dir))
+		.pipe(gulp.dest(css_output))
 	;
 
 });
 
 
-// Combine template files
+// for combining handlebars templates
 gulp.task('html', function() {
 
 	return gulp.src([
