@@ -1,3 +1,18 @@
+<?php
+/**
+ * The template for displaying the footer.
+ *
+ * Contains the closing of the #content div and all content after
+ *
+ * @package understrap
+ */
+
+$the_theme = wp_get_theme();
+$container = get_theme_mod( 'understrap_container_type' );
+?>
+
+<?php get_sidebar( 'footerfull' ); ?>
+
 <div class="wrapper" id="wrapper-footer">
 
 	<div class="<?php echo esc_html( $container ); ?>">
@@ -10,10 +25,18 @@
 
 					<div class="site-info">
 
-						<a href="<?php  echo esc_url( __( 'http://wordpress.org/','understrap' ) ); ?>">
-
-						<span class="sep"> | </span>
-
+							<a href="<?php  echo esc_url( __( 'http://wordpress.org/','understrap' ) ); ?>"><?php printf( 
+							/* translators:*/
+							esc_html__( 'Proudly powered by %s', 'understrap' ),'WordPress' ); ?></a>
+								<span class="sep"> | </span>
+					
+							<?php printf( // WPCS: XSS ok.
+							/* translators:*/
+								esc_html__( 'Theme: %1$s by %2$s.', 'understrap' ), $the_theme->get( 'Name' ),  '<a href="'.esc_url( __('http://understrap.com', 'understrap')).'">understrap.com</a>' ); ?> 
+				
+							(<?php printf( // WPCS: XSS ok.
+							/* translators:*/
+								esc_html__( 'Version: %1$s', 'understrap' ), $the_theme->get( 'Version' ) ); ?>)
 					</div><!-- .site-info -->
 
 				</footer><!-- #colophon -->
@@ -26,32 +49,11 @@
 
 </div><!-- wrapper end -->
 
-
-
-<footer id="" class="site-footer" role="contentinfo">
-		<?php
-		get_template_part( 'templates/footer/footer', 'widgets' );
-
-		if ( has_nav_menu( 'social' ) ) : ?>
-			<nav class="social-navigation" role="navigation" aria-label="<?php _e( 'Footer Social Links Menu', 'twentyseventeen' ); ?>">
-				<?php
-					wp_nav_menu( array(
-						'theme_location' => 'social',
-						'menu_class'     => 'social-links-menu',
-						'depth'          => 1,
-						'link_before'    => '<span class="screen-reader-text">',
-						'link_after'     => '</span>' . twentyseventeen_get_svg( array( 'icon' => 'chain' ) ),
-					) );
-				?>
-			</nav><!-- .social-navigation -->
-		<?php endif;
-
-		//get_template_part( 'templates/footer/site', 'info' );
-		?>
-</footer><!-- #colophon -->
-
 </div><!-- #page -->
+
 <?php wp_footer(); ?>
 
 </body>
+
 </html>
+

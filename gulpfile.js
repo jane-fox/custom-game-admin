@@ -65,7 +65,17 @@ gulp.task('sass', function () {
 	return gulp.src(sass_dir)
 		.pipe(sass({ style: "compressed" }).on('error', sass.logError))
 		.pipe(minify())
-		.pipe(gulp.dest(css_output))
+		.pipe(gulp.dest(css_dir))
+	;
+
+});
+
+gulp.task('src', function () {
+
+	return gulp.src("assets/src/**/*.scss")
+		.pipe(sass({ style: "compressed" }).on('error', sass.logError))
+		.pipe(minify())
+		.pipe(gulp.dest(css_dir))
 	;
 
 });

@@ -1,5 +1,6 @@
 <?php
 
+include "understrap_functions.php";
 
 define("CONTENT_VERSION", "0.2");
 

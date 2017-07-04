@@ -1,16 +1,11 @@
 <?php
 /**
- * The template for displaying comments
+ * The template for displaying comments.
  *
- * This is the template that displays the area of the page that contains both the current comments
+ * The area of the page that contains both current comments
  * and the comment form.
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
- * @version 1.0
+ * @package understrap
  */
 
 /*
@@ -23,60 +18,85 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div class="comments-area" id="comments">
 
-	<?php
-	// You can start editing here -- including this comment!
-	if ( have_comments() ) : ?>
+	<?php // You can start editing here -- including this comment! ?>
+
+	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
 				$comments_number = get_comments_number();
-				if ( '1' === $comments_number ) {
-					/* translators: %s: post title */
-					printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'twentyseventeen' ), get_the_title() );
-				} else {
+				if ( 1 === $comments_number ) {
 					printf(
+						/* translators: %s: post title */
+						esc_html_x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'understrap' ),
+						'<span>' . get_the_title() . '</span>'
+					);
+				} else {
+					printf( // WPCS: XSS OK.
 						/* translators: 1: number of comments, 2: post title */
-						_nx(
-							'%1$s Reply to &ldquo;%2$s&rdquo;',
-							'%1$s Replies to &ldquo;%2$s&rdquo;',
+						esc_html( _nx(
+							'%1$s thought on &ldquo;%2$s&rdquo;',
+							'%1$s thoughts on &ldquo;%2$s&rdquo;',
 							$comments_number,
 							'comments title',
-							'twentyseventeen'
-						),
+							'understrap'
+						) ),
 						number_format_i18n( $comments_number ),
-						get_the_title()
+						'<span>' . get_the_title() . '</span>'
 					);
 				}
 			?>
-		</h2>
+		</h2><!-- .comments-title -->
+
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
+			<nav class="comment-navigation" id="comment-nav-above">
+				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'understrap' ); ?></h1>
+				<?php if ( get_previous_comments_link() ) { ?>
+					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments',
+					'understrap' ) ); ?></div>
+				<?php }
+if ( get_next_comments_link() ) { ?>
+					<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;',
+					'understrap' ) ); ?></div>
+				<?php } ?>
+			</nav><!-- #comment-nav-above -->
+		<?php endif; // check for comment navigation. ?>
 
 		<ol class="comment-list">
 			<?php
-				wp_list_comments( array(
-					'avatar_size' => 100,
-					'style'       => 'ol',
-					'short_ping'  => true,
-					'reply_text'  => twentyseventeen_get_svg( array( 'icon' => 'mail-reply' ) ) . __( 'Reply', 'twentyseventeen' ),
-				) );
+			wp_list_comments( array(
+				'style'      => 'ol',
+				'short_ping' => true,
+			) );
 			?>
-		</ol>
+		</ol><!-- .comment-list -->
 
-		<?php the_comments_pagination( array(
-			'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous', 'twentyseventeen' ) . '</span>',
-			'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-		) );
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
+			<nav class="comment-navigation" id="comment-nav-below">
+				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'understrap' ); ?></h1>
+				<?php if ( get_previous_comments_link() ) { ?>
+					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments',
+					'understrap' ) ); ?></div>
+				<?php }
+if ( get_next_comments_link() ) { ?>
+					<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;',
+					'understrap' ) ); ?></div>
+				<?php } ?>
+			</nav><!-- #comment-nav-below -->
+		<?php endif; // check for comment navigation. ?>
 
-	endif; // Check for have_comments().
+	<?php endif; // endif have_comments(). ?>
 
-	// If comments are closed and there are comments, let's leave a little note, shall we?
-	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'twentyseventeen' ); ?></p>
 	<?php
-	endif;
+	// If comments are closed and there are comments, let's leave a little note, shall we?
+	if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+		?>
 
-	comment_form();
-	?>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'understrap' ); ?></p>
+
+	<?php endif; ?>
+
+	<?php comment_form(); // Render comments form. ?>
 
 </div><!-- #comments -->
