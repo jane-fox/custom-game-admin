@@ -1,6 +1,6 @@
 // Some basic padding for all wrappers
-.wrapper { 
-  padding: $grid-gutter-width-base 0; }
+.wrapper {
+  //padding: $grid-gutter-width-base 0; }
 
 // Reset hero wrapper padding to 0
 #wrapper-hero { padding: 0px !important; }
@@ -8,16 +8,16 @@
 // Adding basic Wordpress classes to pass the Wordpress.org tests
 .sticky,
 .gallery-caption,
-.bypostauthor { 
-  font-size: inherit; 
+.bypostauthor {
+  font-size: inherit;
 }
 
 // Separate sticky wrapper from main content
-.wrapper#wrapper-sticky { border-bottom: 1px solid $gray-light; }
+.wrapper#wrapper-sticky { border-bottom: 1px solid #246; }
 
 // Adding some contrast background color to footer full widget
 #wrapper-footer-full,
-#wrapper-static-hero { background-color: $gray-lighter; }
+#wrapper-static-hero { background-color: #123 }
 
 // Necessary WP classes
 .wp-caption { font-size: inherit; }
@@ -72,15 +72,15 @@ a.skip-link {
 }
 
 .bg-primary .dropdown-menu {
-background-color:$brand-primary;
+background-color: #123;
 }
 
 .bg-success .dropdown-menu {
-background-color:$brand-success;
+background-color: #123;
 }
 
 .bg-inverse .dropdown-menu {
-background-color:$brand-inverse;
+background-color: #000;
 }
 
 // Fixing BS dropdown in a dropdown
@@ -104,11 +104,11 @@ background-color:$brand-inverse;
   width: 100%;
   a.nav-link{
     margin:0px;
-    padding:$nav-link-padding;
+    padding: 10px;
 
   }
-  a.nav-link:hover { 
-    background-color: $brand-primary; 
+  a.nav-link:hover {
+    background-color: #123;
   }
 }
 
@@ -142,4 +142,5 @@ h1.navbar-brand {
   a:hover {
     text-decoration:none;
   }
+}
 }

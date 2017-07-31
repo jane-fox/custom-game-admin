@@ -180,14 +180,13 @@ function set_default_admin_color($user_id) {
 
 
 
-
-
-
 // Enqueue scripts and styles.
 function enqueue_stuff() {
 
 	// Theme stylesheet.
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array(), CONTENT_VERSION );
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), CONTENT_VERSION );
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), CONTENT_VERSION );
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/theme.css', array(), CONTENT_VERSION );
 	wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/scripts.min.js', array(), CONTENT_VERSION, true );
 
 
