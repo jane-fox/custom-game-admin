@@ -1,6 +1,6 @@
 <?php
 
-include "understrap_functions.php";
+
 
 define("CONTENT_VERSION", "0.2");
 
@@ -179,20 +179,72 @@ function set_default_admin_color($user_id) {
 }
 
 
-
-// Enqueue scripts and styles.
-function enqueue_stuff() {
-
-	// Theme stylesheet.
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), CONTENT_VERSION );
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), CONTENT_VERSION );
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/theme.css', array(), CONTENT_VERSION );
-	wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/scripts.min.js', array(), CONTENT_VERSION, true );
+require get_template_directory() . '/inc/enqueue.php';
 
 
-}
-add_action( 'wp_enqueue_scripts', 'enqueue_stuff' );
 
+/**
+ * Theme setup and custom theme supports.
+ */
+require get_template_directory() . '/inc/setup.php';
+
+/**
+ * Register widget area.
+ *
+ * @link http://codex.wordpress.org/Function_Reference/register_sidebar
+ */
+require get_template_directory() . '/inc/widgets.php';
+
+/**
+ * Load functions to secure your WP install.
+ */
+require get_template_directory() . '/inc/security.php';
+
+
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/pagination.php';
+
+/**
+ * Custom functions that act independently of the theme templates.
+ */
+require get_template_directory() . '/inc/extras.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/custom-comments.php';
+
+/**
+ * Load Jetpack compatibility file.
+ */
+require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Load custom WordPress nav walker.
+ */
+require get_template_directory() . '/inc/bootstrap-wp-navwalker.php';
+
+/**
+ * Load WooCommerce functions.
+ */
+//require get_template_directory() . '/inc/woocommerce.php';
+
+/**
+ * Load Editor functions.
+ */
+require get_template_directory() . '/inc/editor.php';
 
 
 /**

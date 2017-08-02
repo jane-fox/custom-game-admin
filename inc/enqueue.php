@@ -5,20 +5,20 @@
  * @package understrap
  */
 
-if ( ! function_exists( 'understrap_scripts' ) ) {
-	/**
-	 * Load theme's JavaScript sources.
-	 */
-	function understrap_scripts() {
-		// Get the theme data.
-		$the_theme = wp_get_theme();
-		//wp_enqueue_style( 'understrap-styles', get_stylesheet_directory_uri() . '/css/theme.min.css', array(), $the_theme->get( 'Version' ) );
-		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'understrap-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $the_theme->get( 'Version' ), true );
-		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-			wp_enqueue_script( 'comment-reply' );
-		}
-	}
-} // endif function_exists( 'understrap_scripts' ).
+if ( ! function_exists( 'enqueue_stuff' ) ) {
 
-add_action( 'wp_enqueue_scripts', 'understrap_scripts' );
+	// Enqueue scripts and styles.
+	function enqueue_stuff() {
+
+		// Theme stylesheet.
+		wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), CONTENT_VERSION );
+		wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), CONTENT_VERSION );
+		wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/theme.css', array(), CONTENT_VERSION );
+
+		wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/scripts.min.js', array(), CONTENT_VERSION, true );
+
+	}
+
+}
+
+add_action( 'wp_enqueue_scripts', 'enqueue_stuff' );
