@@ -5,6 +5,18 @@
 
 $tightness: 20px;
 
+$font-title: "Baloo";
+$font-text: "Proza Libre";
+
+$font-display: "Comfortaa";
+
+body {
+	font-family: "Proza Libre", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+	font-family: "Comfortaa";
+}
 
 .background-image {
 
@@ -14,4 +26,9 @@ $tightness: 20px;
 	padding: $tightness;
 
 
+}
+
+
+.site-main, .widget-area {
+	padding-top: $tightness;
 }
