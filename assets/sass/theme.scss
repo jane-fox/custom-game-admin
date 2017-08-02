@@ -1,3 +1,17 @@
 
 @import "galleries";
 @import "understrap";
+
+
+$tightness: 20px;
+
+
+.background-image {
+
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: $tightness;
+
+
+}

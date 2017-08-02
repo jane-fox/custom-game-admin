@@ -12,34 +12,32 @@ get_header();
 
 <div class="background-image" style="background-image: url('<?php the_post_thumbnail_url("full"); ?>');">
 
+	<div class="container">
 
-		<div class="content">
+		<h1><?php the_title( ); ?></h1>
 
-
-				<?php the_content( ); ?>
-
-
-
-		</div>
+		<?php the_content( ); ?>
+	</div>
 
 </div>
+
 <?php endwhile; // end of the loop. ?>
 
 
 
 <div class="container">
-<div class="row text-center margin-bottom">
+	<div class="row text-center margin-bottom">
 
-<?php //echo get_field("below_display"); ?>
+		<?php //echo get_field("below_display"); ?>
 
-<?php while ( have_posts( ) ) : the_post(); ?>
+		<?php while ( have_posts( ) ) : the_post(); ?>
 
-	<?php the_content( ); ?>
+			<?php the_content( ); ?>
 
 
-<?php endwhile; // end of the loop. ?>
+		<?php endwhile; // end of the loop. ?>
 
-</div>
+	</div>
 </div>
 
 
