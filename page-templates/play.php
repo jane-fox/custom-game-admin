@@ -1,4 +1,8 @@
 
-<?php //Template Name: play
+<?php //Template Name: Play Game
 
-header('Location: https://adventure-text.com');
+get_header();
+
+include_once("/var/www/play/embed.html");
+
+get_footer();

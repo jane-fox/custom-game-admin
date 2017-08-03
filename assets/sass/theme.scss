@@ -32,3 +32,10 @@ h1, h2, h3, h4, h5, h6, .title {
 .site-main, .widget-area {
 	padding-top: $tightness;
 }
+
+
+article.post {
+	border-bottom: 1px solid #000;
+	padding-bottom: $tightness;
+	margin-bottom: $tightness;
+}
