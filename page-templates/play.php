@@ -3,6 +3,6 @@
 
 get_header();
 
-include_once("/var/www/play/embed.html");
+include_once("/var/www/game/index.html");
 
 get_footer();
