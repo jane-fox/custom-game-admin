@@ -1,6 +1,7 @@
 
 @import "galleries";
 @import "understrap";
+@import "nav";
 
 
 $tightness: 20px;
@@ -39,3 +40,6 @@ article.post {
 	padding-bottom: $tightness;
 	margin-bottom: $tightness;
 }
+
+
+
