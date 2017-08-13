@@ -2,14 +2,10 @@
 @import "galleries";
 @import "understrap";
 @import "nav";
+@import "vars";
 
 
-$tightness: 20px;
 
-$font-title: "Baloo";
-$font-text: "Proza Libre";
-
-$font-display: "Comfortaa";
 
 body {
 	font-family: "Proza Libre", sans-serif;
@@ -17,6 +13,14 @@ body {
 
 h1, h2, h3, h4, h5, h6, .title {
 	font-family: "Comfortaa";
+}
+
+.spacing-bottom {
+	margin-bottom: $tightness * 2;
+}
+
+a {
+	color: $color-main;
 }
 
 .background-image {
@@ -29,6 +33,16 @@ h1, h2, h3, h4, h5, h6, .title {
 
 }
 
+.background-repeat {
+
+	background-image: url("../img/always_grey.png");
+
+	background-repeat: repeat;
+	background-position: center center;
+	padding: $tightness*2 0px;
+
+	color: $color-white;
+}
 
 .site-main, .widget-area {
 	padding-top: $tightness;
@@ -43,3 +57,15 @@ article.post {
 
 
 
+
+// Bootstrap overrides
+
+.bg-inverse {
+	background-color: $color-main !important;
+}
+
+.btn {
+	background-color: $color-main;	
+	border-color: darken($color-main, 10%);
+	color: $color-white;
+}

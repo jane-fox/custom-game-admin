@@ -45,7 +45,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 					<!-- Your site title as branding in the menu -->
 					<?php if ( ! has_custom_logo() ) { ?>
-
+<?php /* For now, no h1 toggle
 						<?php if ( is_front_page() && is_home() ) : ?>
 
 							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
@@ -55,7 +55,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
 						
 						<?php endif; ?>
-						
+*/ ?>
+						<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+							
+							<i class="fa fa-book"></i>
+							<?php bloginfo( 'name' ); ?>
+							
+						</a>
+
 					
 					<?php } else {
 						the_custom_logo();
