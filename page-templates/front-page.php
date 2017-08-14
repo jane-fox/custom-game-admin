@@ -42,7 +42,7 @@ get_header();
 
 <div class="container">
 
-	<h2>New Updates</h2>
+	<h2 class="spacing-bottom">New Updates</h2>
 
 		<?php
 		   // the query

@@ -9,6 +9,9 @@
 
 body {
 	font-family: "Proza Libre", sans-serif;
+	font-size: $font-size-text;
+	background-color: $color-white;
+	color: $color-black;
 }
 
 h1, h2, h3, h4, h5, h6, .title {
@@ -21,6 +24,12 @@ h1, h2, h3, h4, h5, h6, .title {
 
 a {
 	color: $color-main;
+}
+
+hr {
+	color: $color-alt;
+	background-color: $color-alt;
+	margin: $tightness 0;
 }
 
 .background-image {
@@ -42,21 +51,52 @@ a {
 	padding: $tightness*2 0px;
 
 	color: $color-white;
+
+	a {
+		color: $color-white;
+	}
 }
 
-.site-main, .widget-area {
+.site-main {
 	padding-top: $tightness;
 }
 
+.widget-area {
+	padding-top: $tightness*2;
+}
+.widget {
+	margin-bottom: $tightness*2;
+}
+
+.entry-title {
+	margin: $tightness 0;
+}
+.entry-meta {
+	margin-bottom: $tightness;
+}
+.comment-reply-title {
+	margin-top: $tightness*2;
+}
+
+.post-navigation {
+	margin-bottom: $tightness*2;
+}
 
 article.post {
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid $color-alt;
 	padding-bottom: $tightness;
-	margin-bottom: $tightness;
+	margin-bottom: $tightness*2;
 }
 
 
+.navbar {
+	font-size: $font-size-big;
+}
 
+.navbar-brand {
+	font-size: $font-size-big;
+
+}
 
 // Bootstrap overrides
 

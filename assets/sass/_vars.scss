@@ -5,13 +5,21 @@ $tightness: 20px;
 
 $font-title: "Baloo";
 $font-text: "Proza Libre";
-
 $font-display: "Comfortaa";
 
+$font-size-text: 18px;
+$font-size-big: 24px;
+$font-size-title: 32px;
 
-$color-white: #FFFCF9;
-$color-black: #1f1c19;
+//$color-main: #354358;
+$color-main: #97486a;
+
+//$color-white: #fff5fa;
+$color-white: lighten($color-main, 70%);
+//$color-black: #280315;
+$color-black: darken($color-main, 30%);
+
+$color-alt: lighten($color-main, 30%);
 
 
-$color-main: #583545;
 
