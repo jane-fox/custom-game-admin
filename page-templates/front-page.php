@@ -42,7 +42,8 @@ get_header();
 
 <div class="container">
 
-	<h2 class="spacing-bottom">New Updates</h2>
+	<h2 class="spacing-bottom inline-block">New Updates</h2>
+	<a href="/blog" class="spacing-left">See all updates</a>
 
 		<?php
 		   // the query
@@ -53,14 +54,11 @@ get_header();
 		?>
 
 		<?php if ( $the_query->have_posts() ) : ?>
-		  <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-			<div class="margin-bottom">
-
-				<h3><?php the_title(); ?></h3>
-				<p><?php the_excerpt(); ?></p>
-			</div>
-
+			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+				<?php get_template_part("loop-templates/content"); ?>
+	
 			<?php endwhile; ?>
+			
 			<?php wp_reset_postdata(); ?>
 
 		<?php else : ?>
