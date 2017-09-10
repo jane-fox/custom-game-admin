@@ -124,3 +124,8 @@ article.post {
 .inline-block {
 	display: inline-block;
 }
+
+.entry-footer span {
+	display: inline-block;
+	margin-right: $tightness;
+}
